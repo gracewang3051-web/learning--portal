@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#f5f1ea">
+  <title>学习门户 · Grace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="hero-row">
+        <h1>🏠 学习门户</h1>
+        <span class="badge" id="date-badge"></span>
+      </div>
+      <p class="hero-sub">语文学习 · 暑期规划 · 课程导读</p>
+    </header>
+
+    <main class="grid">
+      <!-- 文言文辅导（已上线） -->
+      <a class="card card-active" href="https://wenyan-web.onrender.com" target="_blank" rel="noopener">
+        <div class="card-icon">📚</div>
+        <div class="card-title">文言文辅导</div>
+        <div class="card-sub">第 12 篇《逊斋记》· 第 13 篇《玉立斋记》</div>
+        <div class="card-meta">
+          <span class="tag tag-good">已上线</span>
+          <span class="tag">听播客 · 闪卡复习</span>
+        </div>
+      </a>
+
+      <!-- 暑假日程表（已上线，但暂用 tunnel） -->
+      <a class="card card-active" href="https://60f3928c438c2b.lhr.life/" target="_blank" rel="noopener">
+        <div class="card-icon">📅</div>
+        <div class="card-title">暑假日程表</div>
+        <div class="card-sub">郭锴熠 · 2026 年暑假</div>
+        <div class="card-meta">
+          <span class="tag tag-warn">需 Mac 在线</span>
+          <span class="tag">28 节课 + 飞跃项目</span>
+        </div>
+      </a>
+
+      <!-- 华老师课程导读（准备中） -->
+      <div class="card card-soon">
+        <div class="card-icon">🎓</div>
+        <div class="card-title">华老师课程导读</div>
+        <div class="card-sub">课程解析 · 先导音频 · 考点整理</div>
+        <div class="card-meta">
+          <span class="tag tag-soon">准备中</span>
+          <span class="tag">下次添加</span>
+        </div>
+      </div>
+    </main>
+
+    <footer class="foot">
+      <span>v1.0</span>
+      <span>·</span>
+      <span>更新于 <span id="update-date"></span></span>
+    </footer>
+  </div>
+
+  <script>
+    // 显示今天日期
+    const d = new Date();
+    const opts = { month: 'long', day: 'numeric', weekday: 'short' };
+    document.getElementById('date-badge').textContent = d.toLocaleDateString('zh-CN', opts);
+    document.getElementById('update-date').textContent = d.toISOString().slice(0, 10);
+  </script>
+</body>
+</html>

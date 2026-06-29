@@ -1,0 +1,137 @@
+/* 学习门户 - 莫兰迪配色 / 个人学习工具 */
+:root {
+  --bg: #f5f1ea;
+  --bg-card: #fbf8f3;
+  --ink: #2c2a26;
+  --ink-soft: #6b6760;
+  --line: #e8e0d4;
+  --accent: #a3b5a3;          /* 鼠尾草绿 */
+  --accent-warm: #d4a574;     /* 沙橘 */
+  --accent-soft: #b8a8c4;     /* 烟紫 */
+  --good: #8a9b73;            /* 苔绿 */
+  --warn: #c9a86b;            /* 暖黄 */
+  --soon: #b8aea3;            /* 灰褐 */
+  --shadow: 0 1px 2px rgba(60,50,40,0.04), 0 4px 16px rgba(60,50,40,0.06);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+/* hero */
+.hero { margin-bottom: 28px; }
+.hero-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.hero h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.badge {
+  font-size: 13px;
+  color: var(--ink-soft);
+  background: var(--bg-card);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+}
+.hero-sub {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+/* grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 640px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* card */
+.card {
+  display: block;
+  background: var(--bg-card);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--line);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.card-active:active { transform: scale(0.985); }
+@media (hover: hover) {
+  .card-active:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1px 2px rgba(60,50,40,0.04), 0 8px 24px rgba(60,50,40,0.10);
+  }
+}
+.card-soon {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+.card-sub {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+}
+.tag-good  { background: #e8efe1; color: var(--good); border-color: #c8d4b8; }
+.tag-warn  { background: #f3e8d4; color: var(--warn); border-color: #dcc89e; }
+.tag-soon  { background: #ece7df; color: var(--soon); border-color: #d4ccbf; }
+
+/* footer */
+.foot {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-soft);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
