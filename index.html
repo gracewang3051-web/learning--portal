@@ -4,8 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta="apple-mobile-web-app-capable" content="yes">
-  <meta name="theme-color" content="#f5f1ea">
+  <meta name="theme-color" content="#a3b5a3">
   <title>学习门户 · Grace</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="学习门户">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="学习门户">
+  <meta name="msapplication-TileColor" content="#a3b5a3">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -66,6 +74,17 @@
     const opts = { month: 'long', day: 'numeric', weekday: 'short' };
     document.getElementById('date-badge').textContent = d.toLocaleDateString('zh-CN', opts);
     document.getElementById('update-date').textContent = d.toISOString().slice(0, 10);
+  </script>
+
+  <script>
+    // 注册 Service Worker（PWA 离线缓存）
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch((err) => {
+          console.log('SW 注册失败:', err);
+        });
+      });
+    }
   </script>
 </body>
 </html>
