@@ -1,7 +1,7 @@
 // 学习门户 Service Worker
 // 缓存首页 + 静态资源，支持离线访问（音频不缓存，太大）
 
-const CACHE_NAME = 'learning-portal-v1';
+const CACHE_NAME = 'learning-portal-v2';  // v1→v2: 强制清理旧缓存，让用户拿到新版
 const PRECACHE = [
   '/',
   '/index.html',
