@@ -42,22 +42,21 @@ self.addEventListener('fetch', (event) => {
     return;  // 走网络
   }
 
+  // 网络优先：先尝试网络，失败才用缓存（确保 PWA 也能拿到新版本）
   event.respondWith(
-    caches.match(event.request).then((cached) => {
-      if (cached) return cached;
-      return fetch(event.request).then((response) => {
-        // 只缓存成功的 GET 请求
-        if (response.ok && event.request.method === 'GET') {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-        }
-        return response;
-      });
-    }).catch(() => {
-      // 离线 fallback（如果是 HTML 请求，返回首页）
-      if (event.request.destination === 'document') {
-        return caches.match('/');
+    fetch(event.request).then((response) => {
+      // 缓存成功的 GET 响应
+      if (response.ok && event.request.method === 'GET') {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
       }
+      return response;
+    }).catch(() => {
+      // 离线 fallback
+      return caches.match(event.request).then((cached) => {
+        if (cached) return cached;
+        if (event.request.destination === 'document') return caches.match('/');
+      });
     })
   );
 });
