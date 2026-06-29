@@ -7,7 +7,7 @@
 | 应用 | URL | 状态 |
 |---|---|---|
 | 📚 文言文辅导 | https://wenyan-web.onrender.com | 已上线 |
-| 📅 暑假日程表 | tunnel 临时链接 | 已上线（需 Mac 在线） |
+| 📅 暑假日程表 | https://paike-kayi.onrender.com | 已上线（永久） |
 | 🎓 华老师课程导读 | — | 准备中 |
 
 ## 本地开发
